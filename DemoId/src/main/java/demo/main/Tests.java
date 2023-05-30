@@ -1,3 +1,4 @@
+package demo.main;
 import java.io.IOException;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
@@ -13,7 +14,7 @@ import demo.resources.Keywords;
  
 
 
-public class main{
+public class Tests{
 	
 
 	public WebDriver driver;
