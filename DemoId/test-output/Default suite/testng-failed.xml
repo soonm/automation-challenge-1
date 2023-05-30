@@ -6,8 +6,8 @@
       <class name="main">
         <methods>
           <include name="SetUp"/>
-          <include name="tearDown"/>
           <include name="fillCart"/>
+          <include name="TearDown"/>
         </methods>
       </class> <!-- main -->
     </classes>

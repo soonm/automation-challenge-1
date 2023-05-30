@@ -1,12 +1,13 @@
+package demo.resources;
 
-public class cartElement {
+public class CartElement {
 
 	    private float kcal;
 	    private float protein;
 	    private float fat;
 	    private float carbs;
 
-	    public cartElement(float kcal, float protein,float fat,float carbs) {
+	    public CartElement(float kcal, float protein,float fat,float carbs) {
 	        this.kcal = kcal;
 	        this.protein = protein;
 	        this.fat=fat;

@@ -1,12 +1,19 @@
+package demo.resources;
+import java.io.File;
+import java.io.IOException;
 import java.text.DecimalFormat;
 import java.util.List;
 
+import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;
+import org.openqa.selenium.OutputType;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.TakesScreenshot;
 
-public   class keywords {
 
-	public static void  fillCart(WebDriver driver,List<String> items,List<cartElement> cartList) {
+public   class Keywords {
+
+	public static void  fillCart(WebDriver driver,List<String> items,List<CartElement> cartList) {
 		
 		int listSize= items.size();
 
@@ -20,7 +27,7 @@ public   class keywords {
 			 float fatText=Float.parseFloat(driver.findElement(By.xpath("//*[@id='food-search']//tbody//tr[1]//td[4]")).getText());
 			 float carbsText=Float.parseFloat(driver.findElement(By.xpath("//*[@id='food-search']//tbody//tr[1]//td[5]")).getText());
 
-			 cartElement cartElem = new cartElement(kcalText,proteinText,fatText,carbsText);
+			 CartElement cartElem = new CartElement(kcalText,proteinText,fatText,carbsText);
 
 			 cartList.add(cartElem);
 			 
@@ -30,7 +37,7 @@ public   class keywords {
 	}
 	
 	
-	public static cartElement getTotalCartElementProperties(WebDriver driver) {
+	public static CartElement getTotalCartElementProperties(WebDriver driver) {
 		
 		
 		
@@ -38,12 +45,12 @@ public   class keywords {
 		float proteinText=Float.parseFloat(driver.findElement(By.id("total-protein_g")).getText());
 		float fatText=Float.parseFloat(driver.findElement(By.id("total-fat_g")).getText());		
 		float carbsText=Float.parseFloat(driver.findElement(By.id("total-carbohydrate_g")).getText());		
-		cartElement cartElem = new cartElement(kcalText,proteinText,fatText,carbsText);
+		CartElement cartElem = new CartElement(kcalText,proteinText,fatText,carbsText);
 		
 		return cartElem;
 	}
 	
-	public static cartElement getActualTotalCartElementProperties(List<cartElement> cartList ) {
+	public static CartElement getActualTotalCartElementProperties(List<CartElement> cartList ) {
 		
 		DecimalFormat df = new DecimalFormat("#.##");
 		float sumKcal=0;
@@ -72,7 +79,7 @@ public   class keywords {
         sumFat = Float.parseFloat(formattedSumFat);
         sumCarbs = Float.parseFloat(formattedSumCarbs);
 		
-		cartElement cartElem = new cartElement(sumKcal,sumProtein,sumFat,sumCarbs);
+		CartElement cartElem = new CartElement(sumKcal,sumProtein,sumFat,sumCarbs);
 		return cartElem;
 		
 	}
@@ -86,6 +93,16 @@ public   class keywords {
 			driver.findElement(By.xpath(xpathString)).click();
 		}
 		
+		
+	}
+	
+	public static String takeScreenShot(WebDriver driver,String testCaseName) throws IOException {
+		
+		File screenShot=((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+		
+		File file= new File(System.getProperty("user.dir")+"/reports/"+testCaseName+".png");
+		FileUtils.copyFile(screenShot, file);
+		return System.getProperty("user.dir")+"/reports/"+testCaseName+".png";
 		
 	}
 	
