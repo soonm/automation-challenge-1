@@ -32,13 +32,13 @@ public class Tests{
 	
 	@Test 
 	public void emptyCart() throws IOException {
-    	Keywords.fillCart(driver, objinit.getItems(), objinit.getCartList());
-    	Keywords.emptyCart(driver, objinit.getCartList().size());
-    	CartElement totalProperties= Keywords.getTotalCartElementProperties(driver);
-    	Assert.assertEquals(totalProperties.getKcal(), 0.00, "KCal total sum does not match");
-    	Assert.assertEquals(totalProperties.getProtein(), 0.00, "Protein total sum does not match");
-    	Assert.assertEquals(totalProperties.getFat(), 0.00, "Fat total sum does not match");
-    	Assert.assertEquals(totalProperties.getCarbs(), 0.00, "Carbs total sum does not match");
+	    Keywords.fillCart(driver, objinit.getItems(), objinit.getCartList());
+	    Keywords.emptyCart(driver, objinit.getCartList().size());
+	    CartElement totalProperties= Keywords.getTotalCartElementProperties(driver);
+	    Assert.assertEquals(totalProperties.getKcal(), 0.00, "KCal total sum does not match");
+	    Assert.assertEquals(totalProperties.getProtein(), 0.00, "Protein total sum does not match");
+	    Assert.assertEquals(totalProperties.getFat(), 0.00, "Fat total sum does not match");
+	    Assert.assertEquals(totalProperties.getCarbs(), 0.00, "Carbs total sum does not match");
     }
 	
 	@AfterMethod()

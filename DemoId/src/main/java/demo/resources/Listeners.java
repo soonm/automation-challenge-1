@@ -24,8 +24,8 @@ public class Listeners implements ITestListener{
     	WebDriver driver=null;
     
     	try {
-    		driver =(WebDriver)result.getTestClass().getRealClass().getDeclaredField("driver")
-    				.get(result.getInstance());
+    	    driver =(WebDriver)result.getTestClass().getRealClass().getDeclaredField("driver")
+    	            .get(result.getInstance());
     	} catch (Exception e1) {
     		// TODO Auto-generated catch block
     		e1.printStackTrace();
@@ -35,10 +35,9 @@ public class Listeners implements ITestListener{
     	String filepath=null;
     	
     	try {
-    		 filepath = Keywords.takeScreenShot(driver, result.getMethod().getMethodName());
+    	    filepath = Keywords.takeScreenShot(driver, result.getMethod().getMethodName());
     	} catch (IOException e) {
-    		// TODO Auto-generated catch block
-    		e.printStackTrace();
+    	    e.printStackTrace();
     	}
     	
     	test.addScreenCaptureFromPath(filepath,result.getMethod().getMethodName());
