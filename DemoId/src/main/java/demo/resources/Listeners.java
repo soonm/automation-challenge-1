@@ -12,16 +12,13 @@ public class Listeners implements ITestListener{
 	ExtentTest test;
 	ExtentReports extent=ExtentReporterNG.getReportObject();
 	
-	
 	public void onTestStart(ITestResult result) {
 		test=extent.createTest(result.getMethod().getMethodName());
 	}
 
-	
 	public void onTestSuccess(ITestResult result) {
 		test.log(Status.PASS, "Test Passed");
 	}
-	
 	
 	public void onTestFailure(ITestResult result) {
 		WebDriver driver=null;
@@ -48,27 +45,22 @@ public class Listeners implements ITestListener{
 		test.fail(result.getThrowable());
 	}
 
-	
 	public void onTestSkipped(ITestResult result) {
 		// TODO Auto-generated method stub
 	}
 
-	
 	public void onTestFailedButWithinSuccessPercentage(ITestResult result) {
 		// TODO Auto-generated method stub
 	}
 
-	
 	public void onTestFailedWithTimeout(ITestResult result) {
 		// TODO Auto-generated method stub
 	}
 
-	
 	public void onStart(ITestContext context) {
 		// TODO Auto-generated method stub
 	}
 
-	
 	public void onFinish(ITestContext context) {
 		extent.flush();
 	}
