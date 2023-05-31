@@ -27,8 +27,7 @@ public class Listeners implements ITestListener{
     	    driver =(WebDriver)result.getTestClass().getRealClass().getDeclaredField("driver")
     	            .get(result.getInstance());
     	} catch (Exception e1) {
-    		// TODO Auto-generated catch block
-    		e1.printStackTrace();
+    	    e1.printStackTrace();
     	}
     
     	test.log(Status.FAIL, "Test Failed");
