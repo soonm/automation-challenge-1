@@ -10,7 +10,7 @@ import demo.resources.Keywords;
 import demo.resources.BaseTest;
 
 public class Tests{
-	public WebDriver driver;
+    public WebDriver driver;
 	BaseTest objinit;
 	
 	@BeforeMethod
