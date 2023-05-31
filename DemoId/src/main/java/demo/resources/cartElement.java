@@ -5,7 +5,7 @@ public class CartElement {
     private float protein;
     private float fat;
     private float carbs;
-
+    
     public CartElement(float kcal, float protein,float fat,float carbs) {
         this.kcal = kcal;
         this.protein = protein;
@@ -22,12 +22,10 @@ public class CartElement {
     }
 
     public float getFat() {
-
         return fat;
     }
 
     public float getCarbs() {
-
         return carbs;
     }
 }

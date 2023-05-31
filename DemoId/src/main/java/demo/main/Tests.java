@@ -21,9 +21,9 @@ public class Tests{
 
 	@Test
 	public void fillCart() throws IOException {
-		Keywords.fillCart(driver, objinit.getItems(), objinit.getCartList());
-		CartElement actualTotalProperties= Keywords.getActualTotalCartElementProperties(objinit.getCartList());
-		CartElement totalProperties= Keywords.getTotalCartElementProperties(driver);
+	    Keywords.fillCart(driver, objinit.getItems(), objinit.getCartList());
+	    CartElement actualTotalProperties= Keywords.getActualTotalCartElementProperties(objinit.getCartList());
+	    CartElement totalProperties= Keywords.getTotalCartElementProperties(driver);
 	    Assert.assertEquals(totalProperties.getKcal(), actualTotalProperties.getKcal(), "KCal total sum does not match");
 	    Assert.assertEquals(totalProperties.getProtein(), actualTotalProperties.getProtein(), "Protein total sum does not match");
 	    Assert.assertEquals(totalProperties.getFat(), actualTotalProperties.getFat(), "Fat total sum does not match");
