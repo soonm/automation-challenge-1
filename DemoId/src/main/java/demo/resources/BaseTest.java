@@ -17,15 +17,13 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class BaseTest {
+	private List<CartElement> cartList;
+	private List<String> items;
 
-	 private List<CartElement> cartList;
-	 private List<String> items;
-
-	
-	public   WebDriver Init() throws IOException{
-		
+	public WebDriver Init() throws IOException{
 		WebDriver driver;
 		Properties properties = new Properties();
+		
         FileInputStream fis = new FileInputStream("config.properties");
         properties.load(fis);
         
@@ -50,26 +48,14 @@ public class BaseTest {
 		String itemsProperty = properties.getProperty("items");
 	    items = Arrays.asList(itemsProperty.split(";"));
 	    
-	    
-	    
-	    
-	    return driver;
-		
+	    return driver;	
 	}
 	
 	public List<String> getItems() {
-		
 		return items;
 	}
 	
 	public List<CartElement> getCartList() {
-		
 		return cartList;
 	}
-	
-	
-	
-	
-
-
 }

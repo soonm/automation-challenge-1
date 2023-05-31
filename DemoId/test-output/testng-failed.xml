@@ -6,13 +6,14 @@
   </listeners>
   <test thread-count="5" name="Test(failed)">
     <classes>
-      <class name="main">
+      <class name="demo.main.Tests">
         <methods>
           <include name="SetUp"/>
+          <include name="emptyCart"/>
           <include name="fillCart"/>
           <include name="TearDown"/>
         </methods>
-      </class> <!-- main -->
+      </class> <!-- demo.main.Tests -->
     </classes>
   </test> <!-- Test(failed) -->
 </suite> <!-- Failed suite [Suite] -->
